@@ -73,6 +73,6 @@ x86_64-linux only — matches upstream Proton binaries.
 
 ## License
 
-This flake: [BSD-3-Clause](LICENSE)
+This flake: [MIT](LICENSE)
 
 Upstream Proton-GE-RTSP: [BSD-3-Clause](https://github.com/SpookySkeletons/proton-ge-rtsp/blob/master/LICENSE.proton) (top-level; individual components carry their own licenses)
