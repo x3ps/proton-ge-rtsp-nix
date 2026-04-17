@@ -6,11 +6,11 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "proton-ge-rtsp-bin";
-  version = "GE-Proton10-33-rtsp23-1";
+  version = "GE-Proton10-33-rtsp23-3";
 
   src = fetchzip {
     url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
-    hash = "sha256-gb/d28Lmz4r5Cetp7ct2eQtQZIAcMDxY4F3XCtLk3BY=";
+    hash = "sha256-f9rLihWMiyzUimHysi5bgEjHNSku1qdo4hgYsy7SzDY=";
   };
 
   dontUnpack = true;
