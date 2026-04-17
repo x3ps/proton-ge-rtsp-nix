@@ -6,17 +6,12 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "proton-ge-rtsp-bin";
-  version = "GE-Proton10-33-rtsp22-4";
+  version = "GE-Proton10-33-rtsp23-1";
 
-  src =
-    let
-      # Release tag differs from asset name when upstream does rebuild spins (e.g. -4 suffix).
-      tag = "GE-Proton10-33-rtsp22";
-    in
-    fetchzip {
-      url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${tag}/${finalAttrs.version}.tar.gz";
-      hash = "sha256-YmdO4XaEFbq1lWWorZMqFKVQb+bMxDDH/dpwKaq+Qjg=";
-    };
+  src = fetchzip {
+    url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
+    hash = "sha256-gb/d28Lmz4r5Cetp7ct2eQtQZIAcMDxY4F3XCtLk3BY=";
+  };
 
   dontUnpack = true;
   dontConfigure = true;
