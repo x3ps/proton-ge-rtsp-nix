@@ -25,6 +25,6 @@
         proton-ge-rtsp-bin = self.packages.${system}.proton-ge-rtsp-bin;
       };
 
-      formatter.${system} = pkgs.nixfmt;
+      formatter.${system} = pkgs.nixfmt-tree;
     };
 }

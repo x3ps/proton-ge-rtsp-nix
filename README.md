@@ -54,7 +54,7 @@ By default the tool appears as **GE-Proton-RTSP** in Steam. To override:
 | `packages.x86_64-linux.default` | Alias for the above |
 | `overlays.default` | Nixpkgs overlay adding `proton-ge-rtsp-bin` |
 | `checks.x86_64-linux.proton-ge-rtsp-bin` | Build check |
-| `formatter.x86_64-linux` | `nixfmt` |
+| `formatter.x86_64-linux` | `nixfmt-tree` |
 
 ## Updating
 
