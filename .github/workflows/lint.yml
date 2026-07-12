@@ -1,0 +1,48 @@
+name: Lint
+
+on:
+  pull_request:
+    paths:
+      - "*.nix"
+      - "**/*.nix"
+      - ".github/dependabot.yml"
+      - ".github/workflows/*.yml"
+      - "flake.lock"
+  push:
+    paths:
+      - "*.nix"
+      - "**/*.nix"
+      - ".github/dependabot.yml"
+      - ".github/workflows/*.yml"
+      - "flake.lock"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  nix:
+    name: Nix
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check formatting
+        run: nix fmt -- --ci .
+
+      - name: Check flake outputs
+        run: nix flake check --no-build
